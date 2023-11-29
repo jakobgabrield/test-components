@@ -13,7 +13,7 @@ const Chat: React.FC<ChatTypes> = ({ close }) => {
   };
 
   return (
-    <div className="p-3 md:p-0 rounded-md flex flex-col overflow-hidden shadow-lg border transform transition-all h-screen w-full sm:w-[22em] sm:h-[34em] bg-white">
+    <div className="z-[9999] p-3 md:p-0 rounded-md flex flex-col overflow-hidden shadow-lg border transform transition-all h-screen w-full sm:w-[22em] sm:h-[34em] bg-white">
       <div className="w-full p-3 flex items-center justify-center font-semibold">
         <div className="py-2 absolute self-center ratio-auto w-12 md:w-6 flex-none flex-shrink-0 overflow-hidden">
           <img src={logo} alt="Logo" />
