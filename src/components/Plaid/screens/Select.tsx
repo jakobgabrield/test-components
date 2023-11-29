@@ -20,31 +20,22 @@ const Select = () => {
       </div>
       <div className="h-full w-full grid grid-cols-2 gap-4 justify-center overflow-y-auto">
         {[
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
+          { name: "Citi" },
+          { name: "Bank of America" },
+          { name: "Goldman Sachs" },
+          { name: "Morgan Stanley" },
+          { name: "Citi" },
+          { name: "Bank of America" },
+          { name: "Goldman Sachs" },
+          { name: "Morgan Stanley" },
+          { name: "Citi" },
+          { name: "Bank of America" },
+          { name: "Goldman Sachs" },
+          { name: "Morgan Stanley" },
         ].map((bank, i) => (
           <BankeCard
             id={`${i + 1}`}
+            name={bank.name}
             selection={selection}
             setSelection={setSelection}
           />
@@ -69,18 +60,24 @@ type BankType = {
 
 type BankCardType = {
   id: string;
+  name: string;
   selection: BankType | null;
   setSelection: (selection: BankType | null) => void;
 };
 
-const BankeCard: React.FC<BankCardType> = ({ id, selection, setSelection }) => {
+const BankeCard: React.FC<BankCardType> = ({
+  id,
+  name,
+  selection,
+  setSelection,
+}) => {
   return (
     <div
       onClick={() => {
         if (selection?.id === id) {
           setSelection(null);
         } else {
-          setSelection({ id, name: "Citi" });
+          setSelection({ id, name });
         }
       }}
       className={cn(
@@ -91,7 +88,7 @@ const BankeCard: React.FC<BankCardType> = ({ id, selection, setSelection }) => {
       <div className="ratio-auto w-6 self-center">
         <img src={logo} />
       </div>
-      <p className="text-xs font-bold">Bank Name</p>
+      <p className="text-xs font-bold">{name}</p>
     </div>
   );
 };
