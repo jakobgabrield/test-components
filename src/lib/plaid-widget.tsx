@@ -1,10 +1,10 @@
 import ReactDOM from "react-dom";
-import TestWidget from "../components/Test";
+import Plaid from "../components/Plaid";
 import "../assets/css/tailwind.scss";
 
-class Test_widget extends HTMLElement {
+class Plaid_widget extends HTMLElement {
   static get observedAttributes() {
-    return ["name"];
+    return ["cid"];
   }
 
   connectedCallback() {
@@ -19,7 +19,7 @@ class Test_widget extends HTMLElement {
       props[this.attributes[i].name] = this.attributes[i].value;
     }
     // @ts-ignore
-    ReactDOM.render(<TestWidget {...props} />, this.shadowRoot);
+    ReactDOM.render(<Plaid {...props} />, this.shadowRoot);
   }
 
   attrbuteChangedCallback() {
@@ -31,4 +31,4 @@ class Test_widget extends HTMLElement {
   }
 }
 
-export default Test_widget;
+export default Plaid_widget;

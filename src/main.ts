@@ -1,5 +1,3 @@
-import FeedbackWidget from "./lib/feedback-widget";
-import TestWidget from "./lib/test-widget";
+import PlaidWidget from "./lib/plaid-widget";
 
-customElements.define("feedback-widget", FeedbackWidget);
-customElements.define("test-widget", TestWidget);
+customElements.define("plaid-widget", PlaidWidget);
