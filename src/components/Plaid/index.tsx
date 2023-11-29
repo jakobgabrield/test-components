@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import styles from "../../assets/css/tailwind.scss?inline";
-import Chat from "./Chat";
+import Modal from "./Modal";
 import PlaidContextProvider from "@/providers/PlaidContext";
 
 type PlaidProps = {
@@ -16,7 +16,7 @@ const Plaid: React.FC<PlaidProps> = ({ cid }) => {
       <PlaidContextProvider>
         {open && (
           <div className="w-full h-screen flex flex-col justify-center items-center bg-gray-200/75 z-[999] fixed">
-            <Chat close={() => setOpen((status) => !status)} />
+            <Modal close={() => setOpen((status) => !status)} />
           </div>
         )}
         {!open && (

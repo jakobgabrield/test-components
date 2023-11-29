@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import usePlaid from "@/hooks/usePlaid";
 
 const Select = () => {
-  const { selection, setSelection } = usePlaid();
+  const { selection, setSelection, forward } = usePlaid();
   return (
     <div className="h-full w-full p-5 flex flex-col items-center gap-6 sm:gap-3 lg:gap-6 overflow-hidden">
       <div className="flex flex-col items-start w-full space-y-1">
@@ -51,7 +51,10 @@ const Select = () => {
         ))}
       </div>
       {selection && (
-        <button className="rounded-sm text-lg bg-black text-white font-semibold w-full py-3">
+        <button
+          onClick={forward}
+          className="rounded-sm text-lg bg-black text-white font-semibold w-full py-3"
+        >
           Continue
         </button>
       )}
@@ -81,7 +84,7 @@ const BankeCard: React.FC<BankCardType> = ({ id, selection, setSelection }) => {
         }
       }}
       className={cn(
-        "cursor-pointer w-full border border-gray-100 shadow-sm rounded-sm flex gap-3 justify-center px-8 py-4",
+        "cursor-pointer w-full border border-gray-100 shadow-sm rounded-sm flex gap-3 justify-center px-8 py-8 sm:py-4",
         selection?.id === id && "bg-blue-500 text-white"
       )}
     >

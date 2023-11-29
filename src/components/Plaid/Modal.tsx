@@ -4,16 +4,16 @@ import { IoMdArrowBack } from "react-icons/io";
 import logo from "../../images/logo.png";
 import usePlaid from "@/hooks/usePlaid";
 
-type ChatTypes = {
+type ModalTypes = {
   close: () => void;
 };
 
-const Chat: React.FC<ChatTypes> = ({ close }) => {
-  const { screen, back, getScreen } = usePlaid();
+const Modal: React.FC<ModalTypes> = ({ close }) => {
+  const { back, getScreen, hasBack } = usePlaid();
   return (
     <div className="z-[9999] p-3 md:p-0 rounded-md flex flex-col overflow-hidden shadow-lg border transform transition-all h-screen w-full sm:w-[22em] sm:h-[34em] bg-white">
       <div className="w-full px-3 pt-3 sm:pt-6 sm:px-6 flex items-center justify-center font-semibold">
-        {screen !== "welcome" && (
+        {hasBack && (
           <IoMdArrowBack
             className="mr-auto w-6 h-6 md:w-4 md:h-4 font-bold cursor-pointer"
             onClick={back}
@@ -34,4 +34,4 @@ const Chat: React.FC<ChatTypes> = ({ close }) => {
   );
 };
 
-export default Chat;
+export default Modal;
