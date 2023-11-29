@@ -14,7 +14,7 @@ const Plaid: React.FC<PlaidProps> = ({ cid }) => {
     <>
       <style>{styles.toString()}</style>
       {open && (
-        <div className="absolute w-full h-screen flex flex-col justify-center items-center bg-gray-200/75 z-[999]">
+        <div className="absolute w-full h-screen flex flex-col justify-center items-center bg-gray-200/75 z-[999] overscroll-auto">
           <Chat close={() => setOpen((status) => !status)} />
         </div>
       )}

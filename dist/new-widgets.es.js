@@ -15736,8 +15736,8 @@ const cE = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYwIiBoZWlnaHQ9Ijk2MCIgdm
   const [C, W] = Ln.useState(!1);
   return /* @__PURE__ */ pe.jsxs(pe.Fragment, { children: [
     /* @__PURE__ */ pe.jsx("style", { children: rE.toString() }),
-    C && /* @__PURE__ */ pe.jsx("div", { className: "absolute w-full h-screen flex flex-col justify-center items-center bg-gray-200/75 z-[999]", children: /* @__PURE__ */ pe.jsx(dE, { close: () => W((Me) => !Me) }) }),
-    !C && /* @__PURE__ */ pe.jsx("div", { className: "absolute bottom-6 right-6 space-y-5 flex flex-col items-end z-[9999]", children: /* @__PURE__ */ pe.jsx(aE, { isOpen: C, setIsOpen: W }) })
+    C && /* @__PURE__ */ pe.jsx("div", { className: "w-full h-screen flex flex-col justify-center items-center bg-gray-200/75 z-[999]", children: /* @__PURE__ */ pe.jsx(dE, { close: () => W((Me) => !Me) }) }),
+    !C && /* @__PURE__ */ pe.jsx("div", { className: "bottom-6 right-6 space-y-5 flex flex-col items-end z-[9999]", children: /* @__PURE__ */ pe.jsx(aE, { isOpen: C, setIsOpen: W }) })
   ] });
 };
 class vE extends HTMLElement {
