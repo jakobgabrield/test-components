@@ -1,6 +1,6 @@
 import Select from "@/components/Plaid/screens/Select";
 import Welcome from "@/components/Plaid/screens/Welcome";
-import { createContext, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 
 type PlaidContextType = {
   screen: "welcome" | "select";
@@ -26,47 +26,47 @@ export default function PlaidContextProvider({
   const [screen, setScreen] = useState<"welcome" | "select">("welcome");
   const [selection, setSelection] = useState<BankType | null>(null);
 
-  const forward = () => {
-    switch (screen) {
-      case "welcome":
-        return setScreen("select");
-      default:
-        return null;
-    }
-  };
+  const values = useMemo(() => {
+    const forward = () => {
+      switch (screen) {
+        case "welcome":
+          return setScreen("select");
+        default:
+          return null;
+      }
+    };
 
-  const back = () => {
-    switch (screen) {
-      case "select":
-        return setScreen("welcome");
-      default:
-        return null;
-    }
-  };
+    const back = () => {
+      switch (screen) {
+        case "select":
+          return setScreen("welcome");
+        default:
+          return null;
+      }
+    };
 
-  const getScreen = () => {
-    switch (screen) {
-      case "welcome":
-        return <Welcome />;
-      case "select":
-        return <Select />;
-      default:
-        return <Welcome />;
-    }
-  };
+    const getScreen = () => {
+      switch (screen) {
+        case "welcome":
+          return <Welcome />;
+        case "select":
+          return <Select />;
+        default:
+          return <Welcome />;
+      }
+    };
+
+    return {
+      screen,
+      forward,
+      back,
+      getScreen,
+      selection,
+      setSelection,
+    };
+  }, [screen, selection, setSelection]);
 
   return (
-    <PlaidContext.Provider
-      value={{
-        screen,
-        forward,
-        back,
-        getScreen,
-        selection,
-        setSelection,
-      }}
-    >
-      {children}
-    </PlaidContext.Provider>
+    <PlaidContext.Provider value={values}>{children}</PlaidContext.Provider>
   );
 }

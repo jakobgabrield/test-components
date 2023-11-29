@@ -81,7 +81,7 @@ const BankeCard: React.FC<BankCardType> = ({ id, selection, setSelection }) => {
         }
       }}
       className={cn(
-        "cursor-pointer w-full border border-gray-100 shadow-sm rounded-md flex gap-3 justify-center px-8 py-4",
+        "cursor-pointer w-full border border-gray-100 shadow-sm rounded-sm flex gap-3 justify-center px-8 py-4",
         selection?.id === id && "bg-blue-500 text-white"
       )}
     >
