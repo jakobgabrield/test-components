@@ -1,3 +1,3 @@
-import PlaidWidget from "./lib/plaid-widget";
+import PlaidWidget from "./templates/plaid-widget";
 
 customElements.define("plaid-widget", PlaidWidget);

@@ -1,20 +1,24 @@
 import React from "react";
-import Home from "./screens/Home";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { IoMdArrowBack } from "react-icons/io";
 import logo from "../../images/logo.png";
+import usePlaid from "@/hooks/usePlaid";
 
 type ChatTypes = {
   close: () => void;
 };
 
 const Chat: React.FC<ChatTypes> = ({ close }) => {
-  const getScreen = () => {
-    return <Home />;
-  };
-
+  const { screen, back, getScreen } = usePlaid();
   return (
     <div className="z-[9999] p-3 md:p-0 rounded-md flex flex-col overflow-hidden shadow-lg border transform transition-all h-screen w-full sm:w-[22em] sm:h-[34em] bg-white">
-      <div className="w-full p-3 flex items-center justify-center font-semibold">
+      <div className="w-full px-3 pt-3 sm:pt-6 sm:px-6 flex items-center justify-center font-semibold">
+        {screen !== "welcome" && (
+          <IoMdArrowBack
+            className="mr-auto w-6 h-6 md:w-4 md:h-4 font-bold cursor-pointer"
+            onClick={back}
+          />
+        )}
         <div className="py-2 absolute self-center ratio-auto w-12 md:w-6 flex-none flex-shrink-0 overflow-hidden">
           <img src={logo} alt="Logo" />
         </div>

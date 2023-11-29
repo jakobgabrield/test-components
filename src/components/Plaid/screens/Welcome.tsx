@@ -3,7 +3,11 @@ import { PiPlugsConnectedBold } from "react-icons/pi";
 import { FaRegEyeSlash } from "react-icons/fa";
 import illustration from "../../../images/app-launch.svg";
 
-const Home = () => {
+type HomeProps = {
+  forward: () => void;
+};
+
+const Home: React.FC<HomeProps> = ({ forward }) => {
   return (
     <div className="h-full w-full p-5 flex flex-col items-center gap-6 sm:gap-3 lg:gap-6">
       <div className="flex flex-col items-center">
@@ -41,7 +45,10 @@ const Home = () => {
             </a>
           </p>
         </div>
-        <button className="rounded-sm text-lg bg-black text-white font-semibold w-full py-3">
+        <button
+          onClick={forward}
+          className="rounded-sm text-lg bg-black text-white font-semibold w-full py-3"
+        >
           Continue
         </button>
       </div>
