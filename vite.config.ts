@@ -20,7 +20,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "build/static/js",
+    // outDir: "build/static/js",
     emptyOutDir: false,
     commonjsOptions: {
       include: [/node_modules/],
