@@ -47,11 +47,11 @@ export default function PlaidContextProvider({
   const getScreen = () => {
     switch (screen) {
       case "welcome":
-        return <Welcome forward={forward} />;
+        return <Welcome />;
       case "select":
-        return <Select forward={forward} />;
+        return <Select />;
       default:
-        return <Welcome forward={forward} />;
+        return <Welcome />;
     }
   };
 

@@ -2,12 +2,10 @@ import React from "react";
 import { PiPlugsConnectedBold } from "react-icons/pi";
 import { FaRegEyeSlash } from "react-icons/fa";
 import illustration from "../../../images/app-launch.svg";
+import usePlaid from "@/hooks/usePlaid";
 
-type HomeProps = {
-  forward: () => void;
-};
-
-const Home: React.FC<HomeProps> = ({ forward }) => {
+const Welcome = () => {
+  const { forward } = usePlaid();
   return (
     <div className="h-full w-full p-5 flex flex-col items-center gap-6 sm:gap-3 lg:gap-6">
       <div className="flex flex-col items-center">
@@ -56,4 +54,4 @@ const Home: React.FC<HomeProps> = ({ forward }) => {
   );
 };
 
-export default Home;
+export default Welcome;

@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { SearchIcon } from "lucide-react";
 import logo from "../../../images/logo.png";
 import { cn } from "@/lib/utils";
+import usePlaid from "@/hooks/usePlaid";
 
-type SelectProps = {
-  forward: () => void;
-};
-
-const Select: React.FC<SelectProps> = ({ forward }) => {
-  const [selection, setSelection] = useState<BankType | null>(null);
-
+const Select = () => {
+  const { selection, setSelection } = usePlaid();
   return (
     <div className="h-full w-full p-5 flex flex-col items-center gap-6 sm:gap-3 lg:gap-6 overflow-hidden">
       <div className="flex flex-col items-start w-full space-y-1">
@@ -85,7 +81,7 @@ const BankeCard: React.FC<BankCardType> = ({ id, selection, setSelection }) => {
         }
       }}
       className={cn(
-        "cursor-pointer w-full border border-gray-100 shadow-sm rounded-lg flex gap-3 justify-center px-8 py-4",
+        "cursor-pointer w-full border border-gray-100 shadow-sm rounded-md flex gap-3 justify-center px-8 py-4",
         selection?.id === id && "bg-blue-500 text-white"
       )}
     >

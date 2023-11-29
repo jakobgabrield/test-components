@@ -8,6 +8,7 @@
     "build": "tsc --noEmit && cross-env NODE_ENV=production vite build --mode production",
     "preview": "vite preview --open --port 3000",
     "predeploy": "npm run build && sh ./scripts/predeploy.sh",
+    "getHash": "git log -1 --format='%H'",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
